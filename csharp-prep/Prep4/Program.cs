@@ -43,12 +43,12 @@ class Program
         }
 
         //find average
-        float average = 1.2f;
-        average = total / numbers.Count;
+        
+        double average = (double)total / numbers.Count;
 
 
         Console.WriteLine($"The sum is: {total}");
-        Console.WriteLine($"The average is: {average}");
+        Console.WriteLine($"The average is: {average:F15}");
         Console.WriteLine($"The largest number is: {largest}");
         Console.WriteLine($"The smallest number is: {smallest}");
     }
