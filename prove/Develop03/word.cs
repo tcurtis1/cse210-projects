@@ -4,7 +4,7 @@ using System;
 class Word
 {
     private string _word;
-    public bool _isHidden;
+    private bool _isHidden;
 
     public Word(string word)
     {
@@ -20,6 +20,10 @@ class Word
     public void UnHideWord()
     {
         _isHidden = false;
+    }
+    public bool GetHideValue()
+    {
+        return _isHidden;
     }
 
     public string DisplayWord()

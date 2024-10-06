@@ -31,19 +31,19 @@ class Scripture
         int wordsToHide = numberToHide;
 
         // Ensure words are not hidden if they've already been hidden
-        while (wordsToHide > 0 && _scriptureWords.Any(w => !w._isHidden))
+        while (wordsToHide > 0 && _scriptureWords.Any(w => !w.GetHideValue()))
         {
             int index = random.Next(_scriptureWords.Count);
 
             // Only hide the word if it's not already hidden
-            if (!_scriptureWords[index]._isHidden)
+            if (!_scriptureWords[index].GetHideValue())
             {
                 _scriptureWords[index].HideWord();
                 wordsToHide--;
             }
 
             // If all words are hidden, stop the loop
-            if (_scriptureWords.All(w => w._isHidden))
+            if (_scriptureWords.All(w => w.GetHideValue()))
             {
                 Console.WriteLine("All words are hidden!");
                 break;
