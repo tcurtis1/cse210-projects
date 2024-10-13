@@ -1,0 +1,24 @@
+Class order
+List<product>
+Customer customer
+ 
+CalculateTotal(): float
+ 
+PackingLabel(): string
+ 
+ShippingLabel(): string
+ 
+Class Product
+_name: string 
+_productId:  int 
+_price: double 
+_quantity: int
+ 
+ 
+Class Customer
+_name: string 
+Address address
+ 
+Class Address
+_adress: string
+InsideUsa() : boolian  
