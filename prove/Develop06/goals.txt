@@ -1,0 +1,2 @@
+0
+SimpleGoal:Trash,Take the trash out each day.,50,False
