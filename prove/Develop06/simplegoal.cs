@@ -12,6 +12,10 @@ public class SimpleGoal : Goal
     public override int RecordEvent()
     {
         _isComplete = true;
+        if(_isSpecial)
+        {
+            _points = _points * _specialBonusMultiplier;
+        }
         return _points;
     }
 

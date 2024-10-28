@@ -1,2 +1,5 @@
-0
+120
 SimpleGoal:Trash,Take the trash out each day.,50,False
+SimpleGoal:Read Book xyz,Spend 20 minutes reading xyz book each day.,10,False
+EternalGoal:Prayers,Say prayers three times a day.,20
+ChecklistGoal:Exercise,Train for 5k run by running 3 x 5k runs under 30 minutes.,100,3,100,1

@@ -18,14 +18,18 @@ public class ChecklistGoal : Goal
         _amountCompleted++;
         if (_amountCompleted >= _target)
         {
-            return _points + _bonus;
+            _points = _points + _bonus;
+            if(_isSpecial)
+            {
+                _points = _points * _specialBonusMultiplier;
+            }
         }
         return _points;
     }
 
     public override bool IsComplete()
     {
-        return _amountCompleted >= _target; //This returns the result of this evaluation.  Pretty cool!
+        return _amountCompleted >= _target; //This returns the result of this evaluation which is a bool.
     }
 
     public override string GetDetailsString()

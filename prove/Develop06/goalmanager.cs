@@ -7,11 +7,20 @@ public class GoalManager
     private List<Goal> _goals = new List<Goal>();
     private int _score = 0;
 
+    
+    public void EnterToContinue()
+    {
+        Console.WriteLine("Enter any key to continue. ");
+        Console.ReadKey();
+    }
+    
     public void Start()
     {
+       
         bool running = true;
         while (running)
         {
+            Console.Clear();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List Goals");
@@ -55,11 +64,14 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
+        Console.Clear();
         Console.WriteLine($"Your score: {_score} points");
+        EnterToContinue();
     }
 
     public void CreateGoal()
     {
+        Console.Clear();
         Console.WriteLine("Select goal type:");
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
@@ -98,6 +110,7 @@ public class GoalManager
         {
             _goals.Add(newGoal);
             Console.WriteLine("Goal created successfully.");
+            EnterToContinue();
         }
     }
 
@@ -107,11 +120,14 @@ public class GoalManager
         foreach (var goal in _goals)
         {
             Console.WriteLine(goal.GetDetailsString());
+            
         }
+        EnterToContinue();
     }
 
     public void RecordEvent()
     {
+        Console.Clear();
         Console.WriteLine("Which goal did you accomplish?");
         for (int i = 0; i < _goals.Count; i++)
         {
@@ -123,6 +139,10 @@ public class GoalManager
         {
             int pointsEarned = _goals[index].RecordEvent();
             _score += pointsEarned;
+            if(_goals[index].IsThisSpecial())
+            {
+                Console.WriteLine("Congratulations this is a special GOAL! with extra points!");
+            }
             Console.WriteLine($"You earned {pointsEarned} points!");
 
             // Check if the goal was a ChecklistGoal and display extra details
@@ -134,6 +154,7 @@ public class GoalManager
                     Console.WriteLine($"Congratulations! You completed the checklist and earned an additional bonus of {checklistGoal.GetBonus()} points.");
                 }
             }
+            EnterToContinue();
         }
         else
         {
@@ -143,6 +164,7 @@ public class GoalManager
 
     public void SaveGoals()
     {
+        
         using (StreamWriter writer = new StreamWriter("goals.txt"))
         {
             writer.WriteLine(_score); // Write the score at the top
@@ -151,7 +173,8 @@ public class GoalManager
                 writer.WriteLine(goal.GetStringRepresentation()); // Write each goal's string representation
             }
         }
-        Console.WriteLine("Goals saved successfully.");
+        Console.WriteLine("Goals saved successfully in goals.txt.");
+        EnterToContinue();
     }
 
     public void LoadGoals()
@@ -192,5 +215,6 @@ public class GoalManager
             }
         }
         Console.WriteLine("Goals loaded successfully.");
+        EnterToContinue();
     }
 }
