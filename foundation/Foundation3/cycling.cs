@@ -11,7 +11,7 @@ public class Cycling : Activity
 
     public override double GetDistance()
     {
-        return (_speed * Duration) / 60;
+        return (_speed * Duration) / 60; //Duration is actually a getter just using the shortform.
     }
 
     public override double GetSpeed()

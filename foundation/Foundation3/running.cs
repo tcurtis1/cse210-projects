@@ -16,7 +16,7 @@ public class Running : Activity
 
     public override double GetSpeed()
     {
-        return (GetDistance() / Duration) * 60;
+        return (GetDistance() / Duration) * 60; //again Duration is a getter.
     }
 
     public override double GetPace()
